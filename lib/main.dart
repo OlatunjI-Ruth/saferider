@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saferider/screens/homepage/home_page.dart';
 
 void main() {
   runApp(const SafeRider());
@@ -15,7 +16,8 @@ class SafeRider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  HomePage(),
+        debugShowCheckedModeBanner: false
     );
   }
 }
