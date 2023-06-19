@@ -16,7 +16,7 @@ class SafeRider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  HomePage(),
+      home: HomePage(),
         debugShowCheckedModeBanner: false
     );
   }
