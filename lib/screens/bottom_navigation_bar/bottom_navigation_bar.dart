@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     return  MotionTabBar(
       initialSelectedTab: "Safe Rider",
       labels:  ["Orders", "Safe Rider", "Chats"],
-      icons:  [FontAwesomeIcons.fileLines, Icons.dashboard, FontAwesomeIcons.user,],
+      icons:  [FontAwesomeIcons.fileLines, FontAwesomeIcons.house, FontAwesomeIcons.user,],
 
       // badges: [
       // Default Motion Badge Widget
@@ -26,11 +26,11 @@ class BottomNavBar extends StatelessWidget {
       tabSize: 40,
       tabBarHeight: 50,
       textStyle: const TextStyle(
-        fontSize: 12,
+        fontSize: 16,
         color: Colors.deepOrange,
         fontWeight: FontWeight.w500,
       ),
-      tabIconColor: Colors.grey,
+      tabIconColor: Colors.blueGrey,
       tabIconSize: 23.0,
       tabIconSelectedSize: 26.0,
       tabSelectedColor: Colors.white,
