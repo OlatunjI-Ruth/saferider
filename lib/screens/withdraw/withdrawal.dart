@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saferider/components/reusablecard.dart';
 import 'package:saferider/constants/texts.dart';
 
@@ -44,7 +45,7 @@ class WithdrawalPage extends StatelessWidget {
                 cardchild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.food_bank_outlined, color:Colors.deepOrange[300], size: 80),
+                    FaIcon(FontAwesomeIcons.buildingColumns,color:Colors.deepOrange[300], size: 60),
                     Text('Bank', style: kText16black,)
                   ],
                 ),
@@ -60,7 +61,12 @@ class WithdrawalPage extends StatelessWidget {
                     cardchild:Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Icon(Icons.send_to_mobile_outlined, color:Colors.deepOrange[300], size: 80),
+                        Stack(
+                          alignment: AlignmentDirectional.centerEnd,
+                          children: [
+                          Icon(Icons.phone_android_rounded, color:Colors.deepOrange[300], size: 90),
+                          FaIcon(FontAwesomeIcons.moneyBill, color: Colors.deepOrange[300], size: 40,)
+                        ],),
                         Text('Mobile Money', style: kText16black,)
                       ],
                     ),

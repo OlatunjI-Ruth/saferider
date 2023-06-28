@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:saferider/screens/airtime/airtime.dart';
+import 'package:saferider/screens/delivery/delivery.dart';
 import 'package:saferider/screens/homepage/home_page.dart';
+import 'package:saferider/screens/orders/orders.dart';
+import 'package:saferider/screens/paybills/paybills.dart';
+import 'package:saferider/screens/safebike/safebike.dart';
+import 'package:saferider/screens/saferide/saferide.dart';
+import 'package:saferider/screens/sendmoney/send_money.dart';
+import 'package:saferider/screens/withdraw/withdrawal.dart';
 
 void main() {
   runApp(const SafeRider());
@@ -16,8 +24,25 @@ class SafeRider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
-        debugShowCheckedModeBanner: false
+      initialRoute: 'homepage',
+        debugShowCheckedModeBanner: false,
+      routes: {
+        // '/': (context)=>HomePage(),
+        'homepage': (context)=>HomePage(),
+        'pay':(context)=>PayBills(),
+        'sendmoney':(context)=>SendMoney(),
+        'withdraw':(context)=>WithdrawalPage(),
+        // 'deposit':(context)=>PayBills(),
+        // 'transactions':(context)=>PayBills(),
+        'saferide':(context)=>SafeRide(),
+        'safebike':(context)=>SafeBike(),
+        'delivery':(context)=>Delivery(),
+        'paybills':(context)=>PayBills(),
+        'airtimedata':(context)=>AirtimeAndData(),
+        'orders':(context)=>Orders(),
+        'chats':(context)=>PayBills(),
+        'pay':(context)=>PayBills(),
+      },
     );
   }
 }
