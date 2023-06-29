@@ -61,6 +61,10 @@ class SendMoney extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
               child: RoundedButton(
+                buttonchild: Text(
+                    'Pay #11,000 to extend my loan',
+                    style: TextStyle( fontWeight: FontWeight.w600, fontSize: 18, color: Colors.white)
+                ),
               ),
             )
           ],

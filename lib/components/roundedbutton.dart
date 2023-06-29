@@ -6,12 +6,14 @@ class RoundedButton extends StatelessWidget {
         this.onPress,
         this.isLoading = false,
         this.textStyleColor,
-        this.height});
+        this.height,
+      this.buttonchild});
 
   final void Function()? onPress;
   final Color? textStyleColor;
   final double? height;
   final bool? isLoading;
+  final Widget? buttonchild;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,10 @@ class RoundedButton extends StatelessWidget {
           onPressed:() {},
           height:20.0,
             minWidth: double.infinity,
-          child: Text(
-            'Pay #11,000 to extend my loan',
-              style: TextStyle( fontWeight: FontWeight.w600, fontSize: 18, color: Colors.white)
-          )
+          child: buttonchild
         ),
       ),
     );
   }
 }
+
