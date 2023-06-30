@@ -3,11 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends StatefulWidget {
  const  BottomNavBar({Key? key, this.ontabSelectedItem}) : super(key: key,);
 
  final void Function(int)? ontabSelectedItem;
 
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar>  {
   @override
   Widget build(BuildContext context) {
     return  MotionTabBar(
@@ -36,7 +41,7 @@ class BottomNavBar extends StatelessWidget {
       tabSelectedColor: Colors.white,
       tabIconSelectedColor: Colors.deepOrange,
       tabBarColor: Colors.white,
-      onTabItemSelected: ontabSelectedItem
+      onTabItemSelected: widget.ontabSelectedItem
     );
   }
 }
