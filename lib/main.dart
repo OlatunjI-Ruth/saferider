@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saferider/screens/airtime/airtime.dart';
+import 'package:saferider/screens/auth/signup.dart';
 import 'package:saferider/screens/delivery/delivery.dart';
 import 'package:saferider/screens/homepage/home_page.dart';
 import 'package:saferider/screens/orders/orders.dart';
@@ -24,10 +25,11 @@ class SafeRider extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'homepage',
+      initialRoute: 'signup',
         debugShowCheckedModeBanner: false,
       routes: {
         // '/': (context)=>HomePage(),
+        'signup' : (context)=>SignUp(),
         'homepage': (context)=>HomePage(),
         'pay':(context)=>PayBills(),
         'sendmoney':(context)=>SendMoney(),

@@ -7,6 +7,7 @@ class RoundedButton extends StatelessWidget {
         this.isLoading = false,
         this.textStyleColor,
         this.height,
+        this.buttoncolor,
       this.buttonchild});
 
   final void Function()? onPress;
@@ -14,13 +15,14 @@ class RoundedButton extends StatelessWidget {
   final double? height;
   final bool? isLoading;
   final Widget? buttonchild;
+  final Color? buttoncolor;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: Material(
-        color: Colors.black,
+        color: buttoncolor,
         borderRadius: BorderRadius.circular(30.0),
         elevation: 1.0,
         child: MaterialButton(
