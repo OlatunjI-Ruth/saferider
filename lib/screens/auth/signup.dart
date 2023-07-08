@@ -22,7 +22,7 @@ class SignUp extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              'Register',
+              'Safe Rider',
               style: TextStyle(
                   fontSize: 25.0,
                   color: Colors.black,
@@ -36,31 +36,46 @@ class SignUp extends StatelessWidget {
               child: Column(
                 children: [
                   CustomTextFormField(
+                    onChanged: (text){},
                     controller: _fullnameController,
                     fieldLabel: 'Full name',
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
+                    onChanged: (text){},
                     controller: _emailController,
                     fieldLabel: 'Email address',
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
+                      onChanged: (text){},
                       controller: _phonenumberController,
                       fieldLabel: 'Phone number'),
                   SizedBox(height: 15.0),
                   GestureDetector(
-                    onTap: (){
-                      DropdownMenu(dropdownMenuEntries: [],);
+                    onTap: ()async {
+                      DateTime? startPickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime(2002),
+                          firstDate:DateTime(1960),
+                          lastDate: DateTime(2020)
+                      );
+                      String formattedDate =  '${startPickedDate!.day}-${startPickedDate.month}-${startPickedDate.year}';
+                      _dobController.text = formattedDate;
+                      // return _dobController.text;
+
                     },
                     child: CustomTextFormField(
+                      onChanged: (text){},
                         controller: _dobController, fieldLabel: 'Date of birth', enabled: false,),
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
+                      onChanged: (text){},
                       controller: _genderController, fieldLabel: 'Gender'),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
+                      onChanged: (text){},
                       controller: _passwordController, fieldLabel: 'Password'),
 
                   SizedBox(height: 20.0),
@@ -80,12 +95,13 @@ class SignUp extends StatelessWidget {
 }
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({super.key, required this.controller, this.fieldLabel, this.icon, this.enabled});
+  CustomTextFormField({super.key, required this.controller, this.fieldLabel, this.icon, this.enabled, this.onChanged});
 
   final TextEditingController? controller;
   final String? fieldLabel;
   final Widget? icon;
   final bool? enabled;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +148,7 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: Colors.transparent,
         suffixIcon: icon,
       ),
+      onChanged: onChanged,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       enabled: enabled,
       validator: (text) {
