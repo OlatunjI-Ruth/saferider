@@ -13,6 +13,7 @@ class SignUp extends StatelessWidget {
   final TextEditingController _dobController = TextEditingController();
   final TextEditingController _phonenumberController = TextEditingController();
   final TextEditingController _genderController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,53 +37,68 @@ class SignUp extends StatelessWidget {
               child: Column(
                 children: [
                   CustomTextFormField(
-                    onChanged: (text){},
+                    onChanged: (text) {},
                     controller: _fullnameController,
                     fieldLabel: 'Full name',
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
-                    onChanged: (text){},
+                    onChanged: (text) {},
                     controller: _emailController,
                     fieldLabel: 'Email address',
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
-                      onChanged: (text){},
+                      onChanged: (text) {},
                       controller: _phonenumberController,
                       fieldLabel: 'Phone number'),
                   SizedBox(height: 15.0),
                   GestureDetector(
-                    onTap: ()async {
+                    onTap: () async {
                       DateTime? startPickedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime(2002),
-                          firstDate:DateTime(1960),
-                          lastDate: DateTime(2020)
-                      );
-                      String formattedDate =  '${startPickedDate!.day}-${startPickedDate.month}-${startPickedDate.year}';
+                          firstDate: DateTime(1960),
+                          lastDate: DateTime(2020));
+                      String formattedDate =
+                          '${startPickedDate!.day}-${startPickedDate.month}-${startPickedDate.year}';
                       _dobController.text = formattedDate;
                       // return _dobController.text;
-
                     },
                     child: CustomTextFormField(
-                      onChanged: (text){},
-                        controller: _dobController, fieldLabel: 'Date of birth', enabled: false,),
+                      onChanged: (text) {},
+                      controller: _dobController,
+                      fieldLabel: 'Date of birth',
+                      enabled: false,
+                    ),
                   ),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
-                      onChanged: (text){},
-                      controller: _genderController, fieldLabel: 'Gender'),
+                    onChanged: (text) {},
+                    controller: _locationController,
+                    fieldLabel: 'Location',
+                    enabled: false,
+                  ),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  CustomTextFormField(
+                      onChanged: (text) {},
+                      controller: _genderController,
+                      fieldLabel: 'Gender'),
                   SizedBox(height: 15.0),
                   CustomTextFormField(
-                      onChanged: (text){},
-                      controller: _passwordController, fieldLabel: 'Password'),
-
+                      onChanged: (text) {},
+                      controller: _passwordController,
+                      fieldLabel: 'Password'),
                   SizedBox(height: 20.0),
                   RoundedButton(
-                    onPress: (){},
+                    onPress: () {},
                     buttoncolor: Colors.deepOrange,
-                    buttonchild: Text('Register', style: kTextw500white,),
+                    buttonchild: Text(
+                      'Register',
+                      style: kTextw500white,
+                    ),
                   )
                 ],
               ),
@@ -95,7 +111,13 @@ class SignUp extends StatelessWidget {
 }
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({super.key, required this.controller, this.fieldLabel, this.icon, this.enabled, this.onChanged});
+  CustomTextFormField(
+      {super.key,
+      required this.controller,
+      this.fieldLabel,
+      this.icon,
+      this.enabled,
+      this.onChanged});
 
   final TextEditingController? controller;
   final String? fieldLabel;
@@ -130,7 +152,7 @@ class CustomTextFormField extends StatelessWidget {
         disabledBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           borderSide: BorderSide(
-            // style: BorderStyle.none,
+              // style: BorderStyle.none,
               color: Colors.black,
               width: 2.0),
         ),
@@ -141,7 +163,7 @@ class CustomTextFormField extends StatelessWidget {
               color: Colors.black,
               width: 2.0),
         ),
-        focusedBorder:  OutlineInputBorder(
+        focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(20)),
             borderSide: BorderSide(color: Colors.black, width: 2.0)),
         filled: true,
